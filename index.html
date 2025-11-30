@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>JobMatch AI – AI-Powered Resume & Job Match Service</title>
+  <meta name="description" content="AI-powered resume analysis, ATS-ready rewrites, and job match scoring to help you get more interviews and better offers." />
+
+  <meta name="theme-color" content="#0f172a" />
+
+  <!-- PWA manifest -->
+  <link rel="manifest" href="./manifest.json" />
+
+  <!-- Favicon / icons (replace with your real files later) -->
+  <link rel="icon" href="./icons/icon-192.png" type="image/png" />
+
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <!-- HEADER / NAV -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <div class="logo">
+        <span class="logo-mark">AI</span>
+        <span class="logo-text">JobMatch</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#how-it-works" class="nav-link">How it works</a>
+        <a href="#pricing" class="nav-link">Packages</a>
+        <a href="#testimonials" class="nav-link">Results</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+        <a href="#contact" class="btn nav-cta">Get Started</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero" id="top">
+      <div class="container hero-inner">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">AI-Powered Resume & Job Match Service</p>
+          <h1>Stop guessing. Know exactly how well your resume fits the job.</h1>
+          <p class="hero-sub">
+            Get a clear job match score, fix your ATS gaps, and send resumes that
+            actually get interviews and offers.
+          </p>
+
+          <ul class="hero-benefits">
+            <li>Structured AI evaluation of your resume vs job description</li>
+            <li>ATS-optimised resume rewrite for your target role</li>
+            <li>Optional cover letter, LinkedIn and interview prep pack</li>
+          </ul>
+
+          <div class="hero-cta-group">
+            <a href="#contact" class="btn primary">Get My Job Match Score</a>
+            <button class="btn ghost" data-scroll="#pricing">View packages</button>
+          </div>
+
+          <div class="trust-bar">
+            <span class="trust-label">Trusted by job seekers from</span>
+            <div class="trust-tags">
+              <span>Fresh grads</span>
+              <span>Mid-career pros</span>
+              <span>Managers</span>
+              <span>Career switchers</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-panel reveal">
+          <div class="hero-panel-inner">
+            <div class="panel-header">
+              <div class="panel-title">
+                <span class="pill pill-green">Live Demo</span>
+                <h2>Sample Job Match Report</h2>
+              </div>
+              <div class="panel-icon">
+                <!-- Simple inline icon -->
+                <span class="icon-circle">
+                  ✓
+                </span>
+              </div>
+            </div>
+
+            <div class="score-widget">
+              <div class="score-main">
+                <span class="score-label">Match score</span>
+                <span class="score-value"><span id="score-number">62</span>%</span>
+                <span class="score-tag" id="score-tag">Needs improvement</span>
+              </div>
+              <div class="score-meter">
+                <div class="score-meter-fill" id="score-meter-fill"></div>
+              </div>
+              <p class="score-note">
+                This is an example of the type of score clients receive before we rewrite
+                their ATS resume.
+              </p>
+            </div>
+
+            <div class="quick-check">
+              <p class="quick-check-title">Instant hook: who are you?</p>
+              <form id="persona-form">
+                <div class="input-group">
+                  <label for="persona-role">Your target role</label>
+                  <input
+                    type="text"
+                    id="persona-role"
+                    name="persona-role"
+                    placeholder="e.g. Quality Executive, Data Analyst"
+                  />
+                </div>
+                <div class="input-group">
+                  <label for="persona-level">Your current level</label>
+                  <select id="persona-level" name="persona-level">
+                    <option value="">Select one</option>
+                    <option value="fresh">Fresh graduate / Internship</option>
+                    <option value="junior">Junior / 1–3 years</option>
+                    <option value="mid">Mid-level / 3–7 years</option>
+                    <option value="senior">Senior / Lead / Manager</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn secondary full-width">
+                  Show me my biggest risk
+                </button>
+              </form>
+              <p class="persona-output" id="persona-output">
+                Tell us your role and level to see the most common reason people in your
+                situation get rejected.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFITS / PAIN SECTION -->
+    <section class="section alt" id="problem">
+      <div class="container reveal">
+        <h2 class="section-title">Why your applications might be ignored</h2>
+        <p class="section-sub">
+          Most CVs fail before a human even sees them. We fix the core problems:
+        </p>
+        <div class="grid cards-3">
+          <article class="card">
+            <div class="card-icon">⚙️</div>
+            <h3>ATS filters you out</h3>
+            <p>
+              Your resume is not aligned with the job keywords, format, and structure that
+              Applicant Tracking Systems expect, so you never pass the first screen.
+            </p>
+          </article>
+          <article class="card">
+            <div class="card-icon">🎯</div>
+            <h3>No clear job fit</h3>
+            <p>
+              Recruiters can't quickly see why you match the role. Your achievements and
+              experience are not mapped clearly to the job requirements.
+            </p>
+          </article>
+          <article class="card">
+            <div class="card-icon">📉</div>
+            <h3>Wrong positioning</h3>
+            <p>
+              Your CV might be “okay” but it doesn’t signal the right level, scope, or
+              impact to justify interviews or higher salary bands.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT WE DO / FEATURES -->
+    <section class="section" id="solution">
+      <div class="container reveal">
+        <h2 class="section-title">What JobMatch AI does for you</h2>
+        <p class="section-sub">
+          A structured, AI-assisted process that turns your existing resume into a
+          high-converting job application toolkit.
+        </p>
+
+        <div class="grid cards-4 features-grid">
+          <article class="card feature-card">
+            <div class="card-icon">📊</div>
+            <h3>AI job match score</h3>
+            <p>
+              Your resume is compared against the job description with a consultant-style
+              framework: Yes/Partial/No scoring and an overall % alignment.
+            </p>
+          </article>
+          <article class="card feature-card">
+            <div class="card-icon">🧠</div>
+            <h3>Deep requirement analysis</h3>
+            <p>
+              We unpack the role into skills, experience, outcomes, and responsibilities so
+              you know exactly what the employer is really buying.
+            </p>
+          </article>
+          <article class="card feature-card">
+            <div class="card-icon">📝</div>
+            <h3>ATS-ready resume rewrite</h3>
+            <p>
+              Your CV is rebuilt in ATS-friendly format with optimised sections, bullet
+              points, and relevant keywords for your target role.
+            </p>
+          </article>
+          <article class="card feature-card">
+            <div class="card-icon">🚀</div>
+            <h3>Premium positioning</h3>
+            <p>
+              For premium packages, you also get a tailored cover letter, LinkedIn
+              optimisation suggestions, and interview talking points.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section alt" id="how-it-works">
+      <div class="container reveal">
+        <h2 class="section-title">How it works</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-body">
+              <h3>Share your resume & job link</h3>
+              <p>
+                Send your current resume and the job ad or job description for the role you
+                want. One role per report for maximum precision.
+              </p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-body">
+              <h3>AI analysis & structured scoring</h3>
+              <p>
+                We run a structured AI evaluation to calculate your alignment score, highlight
+                gaps, and surface hidden strengths you’re not positioning well.
+              </p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-body">
+              <h3>Receive your report & recommendations</h3>
+              <p>
+                You get a clean report with clear Yes/Partial/No scoring, % alignment, and
+                specific suggestions to fix your profile for the role.
+              </p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">4</div>
+            <div class="step-body">
+              <h3>Upgrade your resume & applications</h3>
+              <p>
+                For rewrite and premium packages, we deliver an ATS-ready CV, custom cover
+                letter, and role-specific prep notes, ready for you to send.
+              </p>
+            </div>
+          </div>
+        </div>
+        <p class="note">
+          Your files are handled privately and never shared with third parties. You stay in
+          full control of your data.
+        </p>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="section" id="pricing">
+      <div class="container reveal">
+        <h2 class="section-title">Choose your package</h2>
+        <p class="section-sub">
+          Start small with a Job Match report, or go all in with a full ATS rewrite and premium pack.
+        </p>
+
+        <div class="pricing-toggle">
+          <span class="toggle-label active" data-currency="myr">RM (Local)</span>
+          <div class="toggle-switch" id="currency-toggle">
+            <div class="toggle-knob"></div>
+          </div>
+          <span class="toggle-label" data-currency="usd">USD (Global)</span>
+        </div>
+
+        <div class="grid cards-4 pricing-grid">
+          <article class="card pricing-card" data-plan="match">
+            <h3>Job Match Score Report</h3>
+            <p class="price">
+              <span class="price-value" data-myr="20–40" data-usd="5–10">RM20–40</span>
+            </p>
+            <p class="price-desc">Best for quick clarity before you apply.</p>
+            <ul class="features">
+              <li>AI Job Match Score (% alignment)</li>
+              <li>Yes / Partial / No breakdown</li>
+              <li>Strengths vs job requirements</li>
+              <li>Key skills & experience gaps</li>
+              <li>Actionable improvement list</li>
+            </ul>
+            <button class="btn small plan-select" data-plan-id="Job Match Score Report">
+              Start with Match Report
+            </button>
+          </article>
+
+          <article class="card pricing-card" data-plan="ats">
+            <h3>ATS Resume Rewrite</h3>
+            <p class="price">
+              <span class="price-value" data-myr="80–150" data-usd="20–40">RM80–150</span>
+            </p>
+            <p class="price-desc">For serious applicants targeting specific roles.</p>
+            <ul class="features">
+              <li>Everything in Match Score Report</li>
+              <li>Full ATS-compliant resume rewrite</li>
+              <li>Role-specific keyword optimisation</li>
+              <li>Improved structure and clarity</li>
+              <li>Editable file (DOCX / Google Docs)</li>
+            </ul>
+            <button class="btn small plan-select" data-plan-id="ATS Resume Rewrite">
+              Upgrade My Resume
+            </button>
+          </article>
+
+          <article class="card pricing-card highlight" data-plan="premium">
+            <div class="badge">Most Popular</div>
+            <h3>Premium Role-Specific Pack</h3>
+            <p class="price">
+              <span class="price-value" data-myr="150–300" data-usd="40–80">RM150–300</span>
+            </p>
+            <p class="price-desc">End-to-end positioning for competitive roles.</p>
+            <ul class="features">
+              <li>Job Match Score & report</li>
+              <li>ATS resume rewrite</li>
+              <li>Custom cover letter</li>
+              <li>LinkedIn profile suggestions</li>
+              <li>Interview preparation notes</li>
+            </ul>
+            <button class="btn small primary plan-select" data-plan-id="Premium Role-Specific Pack">
+              Get Premium Pack
+            </button>
+          </article>
+
+          <article class="card pricing-card" data-plan="subscription">
+            <h3>Monthly Subscription</h3>
+            <p class="price">
+              <span class="price-value" data-myr="49–99" data-usd="15–29">RM49–99</span>
+            </p>
+            <p class="price-desc">Perfect for active job hunters.</p>
+            <ul class="features">
+              <li>Unlimited job match reports</li>
+              <li>Up to 2 resume rewrites / month</li>
+              <li>Up to 2 cover letters / month</li>
+              <li>Priority support</li>
+            </ul>
+            <button class="btn small plan-select" data-plan-id="Monthly Subscription">
+              Join Subscription
+            </button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS / SOCIAL PROOF -->
+    <section class="section alt" id="testimonials">
+      <div class="container reveal">
+        <h2 class="section-title">Client results</h2>
+        <p class="section-sub">
+          Real stories from job seekers who stopped guessing and started applying with confidence.
+        </p>
+
+        <div class="testimonials-slider">
+          <button class="slider-arrow left" aria-label="Previous testimonial">‹</button>
+          <div class="testimonials-track" id="testimonials-track">
+            <article class="testimonial current">
+              <p class="testimonial-quote">
+                “After the Job Match report and resume rewrite, I went from zero replies to
+                three interview invitations in two weeks for Quality Executive roles.”
+              </p>
+              <p class="testimonial-meta">Aina, Quality Executive (Manufacturing)</p>
+            </article>
+
+            <article class="testimonial">
+              <p class="testimonial-quote">
+                “The report showed me clearly why I wasn't a strong match yet and what to fix.
+                I used that to improve my profile and secured a higher-paying role.”
+              </p>
+              <p class="testimonial-meta">Hafiz, Operations Supervisor</p>
+            </article>
+
+            <article class="testimonial">
+              <p class="testimonial-quote">
+                “The premium pack gave me a resume, cover letter, and interview angles
+                that made me sound clear and confident. The recruiter specifically mentioned my CV.”
+              </p>
+              <p class="testimonial-meta">Melissa, Senior Analyst</p>
+            </article>
+          </div>
+          <button class="slider-arrow right" aria-label="Next testimonial">›</button>
+        </div>
+
+        <div class="stats-row">
+          <div class="stat">
+            <span class="stat-value">3–5×</span>
+            <span class="stat-label">increase in interview callbacks (reported)</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">24–48h</span>
+            <span class="stat-label">typical turnaround time for reports</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">1:1</span>
+            <span class="stat-label">personalised support via WhatsApp</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="container reveal">
+        <h2 class="section-title">Frequently asked questions</h2>
+        <div class="faq-list">
+          <article class="faq-item">
+            <button class="faq-question">
+              <span>How long does it take to get my report?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Usually within 24–48 hours after you send your resume and job description.
+                For premium and subscription clients, faster turnaround is prioritised.
+              </p>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-question">
+              <span>What formats do you accept and send back?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                You can send PDF or Word (DOC/DOCX). For rewrites, you’ll receive an
+                editable file (DOCX or Google Docs link) that you can reuse and adapt.
+              </p>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-question">
+              <span>Will this guarantee I get a job?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                No one can guarantee a job. What this service does is maximise your clarity,
+                positioning, and match score so that your chances of getting interviews
+                significantly improve.
+              </p>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-question">
+              <span>Can you help for multiple roles?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Yes. If you are applying to several different roles, the subscription plan
+                gives you unlimited match reports and a fixed number of rewrites each month.
+              </p>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-question">
+              <span>How do I pay and get started?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Submit the form below and you’ll receive a WhatsApp message template with
+                your details. From there, you’ll get payment instructions (e.g. bank transfer
+                or e-wallet) and next steps.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT / LEAD FORM (MAIN HOOK) -->
+    <section class="section cta" id="contact">
+      <div class="container cta-inner reveal">
+        <div class="cta-copy">
+          <h2>Ready to see how well your resume matches your dream job?</h2>
+          <p>
+            Fill in this quick form. Your details are stored on your device only, and
+            you’ll get a ready-to-send WhatsApp message to start the process.
+          </p>
+          <ul class="cta-points">
+            <li>Fast response through WhatsApp</li>
+            <li>Clear package confirmation before payment</li>
+            <li>Support for both local and international roles</li>
+          </ul>
+        </div>
+
+        <div class="cta-form-card">
+          <form id="lead-form">
+            <div class="input-group">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" placeholder="Your full name" required />
+            </div>
+            <div class="input-group">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required />
+            </div>
+            <div class="input-group">
+              <label for="whatsapp">WhatsApp number</label>
+              <input
+                id="whatsapp"
+                name="whatsapp"
+                type="tel"
+                placeholder="e.g. +60XXXXXXXXX"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <label for="target-role">Target role</label>
+              <input
+                id="target-role"
+                name="target-role"
+                type="text"
+                placeholder="e.g. Quality Executive, Project Manager"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <label for="plan">Package</label>
+              <select id="plan" name="plan" required>
+                <option value="">Select package</option>
+                <option value="Job Match Score Report">Job Match Score Report</option>
+                <option value="ATS Resume Rewrite">ATS Resume Rewrite</option>
+                <option value="Premium Role-Specific Pack">Premium Role-Specific Pack</option>
+                <option value="Monthly Subscription">Monthly Subscription</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn primary full-width">
+              Generate WhatsApp message
+            </button>
+          </form>
+
+          <div class="form-result" id="form-result">
+            <p class="form-result-text" id="form-result-text">
+              After submitting, you’ll see a button to continue on WhatsApp.
+            </p>
+            <a
+              id="whatsapp-link"
+              class="btn secondary full-width hidden"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open WhatsApp with my details
+            </a>
+          </div>
+          <p class="privacy-note">
+            Your form data is saved locally in your browser so you can reuse it next time.
+            You can clear it anytime.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> JobMatch AI. All rights reserved.</p>
+      <div class="footer-links">
+        <!-- Replace # with your real social links -->
+        <a href="#" target="_blank" rel="noopener noreferrer">TikTok</a>
+        <a href="#" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>
